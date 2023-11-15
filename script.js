@@ -1,5 +1,5 @@
 // Obtendo uma referência ao elemento article
-const articleElement = document.querySelector('.main-card');
+// const articleElement = document.querySelector('.main-card');
 
 // Usando fetch para obter os dados do arquivo JSON
 fetch('/dados.json')
@@ -8,12 +8,22 @@ fetch('/dados.json')
         // Iterando sobre o array de dados e preenchendo os elementos dentro do article
         dados.forEach(dado => {
             // Criando elementos para cada propriedade do dado
+            const articleElement = document.createElement('article')
             const imgElement = document.createElement('img');
             const indiceElement = document.createElement('span');
             const tituloElement = document.createElement('h2');
             const paragrafoElement = document.createElement('p');
+            const mainWdtElement = document.createElement('mainWdt');
 
-            // Preenchendo os elementos com os valores do dado
+            articleElement.className = 'main-card';
+            imgElement.className = 'card-image'
+            indiceElement.className = 'card-indice'
+            tituloElement.className = 'card-titulo'
+            paragrafoElement.className = 'card-paragrafo'
+            mainWdtElement.className = 'mainWdt'
+
+            document.body.appendChild(articleElement);
+
             imgElement.src = dado.imagem;
             indiceElement.textContent = dado.indice;
             tituloElement.textContent = dado.titulo;
@@ -24,37 +34,6 @@ fetch('/dados.json')
             articleElement.appendChild(indiceElement);
             articleElement.appendChild(tituloElement);
             articleElement.appendChild(paragrafoElement);
-
-            // Adicionando a parte visual dos cards com DOM
-
-            // article:
-            articleElement.style.display = 'flex'
-            articleElement.style.alignItems = 'center'
-            // image:
-            imgElement.style.height = '242px';
-            imgElement.style.width = 'inherit';
-
-            // span:
-            indiceElement.style.color = '#F4323F';
-            indiceElement.style.fontFamily = "'Work Sans', Sans Serif";
-            indiceElement.style.fontWeight = '700'
-            indiceElement.style.fontSize = '70%'
-            indiceElement.style.letterSpacing = '.05em'
-            indiceElement.style.textTransform = 'Uppercase'
-            indiceElement.style.width = '300px'
-
-            // h2:
-            tituloElement.style.color = '#2D3748'
-            tituloElement.style.width = '300px'
-
-            // parágrafo
-            paragrafoElement.style.color = '#1A202C'
-            paragrafoElement.style.fontFamily = "'Work Sans', Sans Serif"
-            paragrafoElement.style.fontStyle = 'normal'
-            paragrafoElement.style.fontWeight = '400'
-            paragrafoElement.style.fontSize = '17px'
-            paragrafoElement.style.lineHeight = '1.6'
-            paragrafoElement.style.width = '300px'
         });
     })
     .catch(error => console.error('Erro ao obter dados:', error));
