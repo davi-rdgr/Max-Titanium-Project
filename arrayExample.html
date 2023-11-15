@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterando sobre o Container</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        span {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <span class="nova_class" id="primeiroValor"></span>
+    <span class="nova_class" id="segundoValor"></span>
+    <span class="nova_class" id="terceiroValor"></span>
+    <span class="nova_class" id="quartoValor"></span>
+</div>
+
+<script>
+    // Array de valores
+    const minhaMatriz = [
+        [123, 'ab', 102, 'ba'],
+        [321, 'ab', 021, 'ue'],
+        [222, 'ow', 021, 'ok'],
+        [100, 'aa', 443, 'li']
+    ];
+    var span = document.getElementsByTagName('span')
+
+    span.forEach(function(minhaMatriz) {
+        span.classList.add('nova_class');
+    });
+</script>
+
+</body>
+</html>
