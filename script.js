@@ -46,7 +46,7 @@ fetch('/dados.json')
             contentSeeElement.appendChild(imgSeeElement);
 
 
-            imgSeeElement.src = '/svg/setaDireita.svg';
+            imgSeeElement.src = '/images/svg/setaDireita.svg';
             spanSeeElement.innerText = 'Leia mais';
 
         });
@@ -65,9 +65,11 @@ menuButton.addEventListener('click', () => {
         menuButton.classList.add('open');
         menu.style.display = 'block';
         menuOpen = true;
+
     } else {
         menuButton.classList.remove('open');
         menu.style.display = 'none';
         menuOpen = false;
     }
 });
+
